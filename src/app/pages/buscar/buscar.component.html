@@ -1,0 +1,22 @@
+<div class="row  animate__animated animate__fadeIn mt-5" *ngIf="!noExiste">
+  
+    <div class="col-md-6 text-center">
+        <h1>POKEMON: <small>{{nombrePokemon}}</small></h1>
+        <img [src]="imgPokemon | domSeguro" [alt]="nombrePokemon" class="img-fluid img-round animate__animated animate__jackInTheBox">
+       
+    </div>
+    <div class="col-md-6" >
+        <h1>Descripcion:</h1>
+        <h5>{{descripcion}}</h5>
+        <h2>Especie:<small> {{especie}}</small></h2>
+    </div>
+   
+</div>
+
+
+  
+    <div class="alert alert-info mt-5 text-center" *ngIf="noExiste" role="alert">
+        <h3>No hay resultados</h3>
+      </div>
+   
+
