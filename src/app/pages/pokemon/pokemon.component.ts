@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FlavorTextEntry, Habilidades } from 'src/app/interfaces/habilidades.interface';
-import { PokemonDetails } from 'src/app/interfaces/pokemon.interface';
+import { Habilidades } from 'src/app/interfaces/habilidades.interface';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
@@ -17,6 +16,7 @@ export class PokemonComponent implements OnInit {
   descripcion: any;
   especie?: Habilidades;
   noExiste=false;
+  imgAnimated:any;
   
 
   constructor(private pokemonSvc:PokemonService, private activatedRoute: ActivatedRoute) { 
@@ -26,6 +26,9 @@ export class PokemonComponent implements OnInit {
     this.pokemonSvc.getPokemonDetail(nombre).subscribe(pokemon =>{
 
       
+      this.imgAnimated= pokemon.sprites.versions?.['generation-v']['black-white'].animated?.front_default;
+      console.log(this.imgAnimated)
+
         this.imgPokemon =pokemon.sprites.other?.['official-artwork'].front_default;  
         this.nombrePokemon = pokemon.name;
 

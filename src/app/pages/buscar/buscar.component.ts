@@ -17,6 +17,7 @@ export class BuscarComponent implements OnInit {
   especie?: Habilidades;
   noExiste = false;
   textoBuscar='';
+  imgAnimated:any;
 
   constructor(private pokemonSvc: PokemonService, private activatedRoute: ActivatedRoute) {
 
@@ -29,6 +30,9 @@ export class BuscarComponent implements OnInit {
        this.pokemonSvc.getPokemonDetail(this.textoBuscar).subscribe({
    
          next: (pokemon) => {
+
+          this.imgAnimated= pokemon.sprites.versions?.['generation-v']['black-white'].animated?.front_default;
+          console.log(this.imgAnimated)
    
            this.imgPokemon = pokemon.sprites.other?.['official-artwork'].front_default;
            this.nombrePokemon = pokemon.name;

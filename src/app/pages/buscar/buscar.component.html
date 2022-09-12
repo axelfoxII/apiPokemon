@@ -1,7 +1,7 @@
 <div class="row  animate__animated animate__fadeIn mt-5" *ngIf="!noExiste">
   
     <div class="col-md-6 text-center">
-        <h1>POKEMON: <small>{{nombrePokemon}}</small></h1>
+        <h1>POKEMON: <img [src]="imgAnimated" alt=""> <small> {{nombrePokemon}}</small> </h1>
         <img [src]="imgPokemon | domSeguro" [alt]="nombrePokemon" class="img-fluid img-round animate__animated animate__jackInTheBox">
        
     </div>
